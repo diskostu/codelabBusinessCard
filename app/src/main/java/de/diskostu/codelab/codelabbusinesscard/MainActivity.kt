@@ -22,7 +22,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import de.diskostu.codelab.codelabbusinesscard.ui.theme.CodelabBusinessCardTheme
@@ -34,7 +33,7 @@ class MainActivity : ComponentActivity() {
             CodelabBusinessCardTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    allTogetherNow()
+                    AllTogetherNow()
                 }
             }
         }
@@ -43,17 +42,17 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun allTogetherNow() {
+fun AllTogetherNow() {
     Box(
         modifier = Modifier
             .fillMaxSize()
     ) {
-        titlePicture(
+        TitlePicture(
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .padding(top = 48.dp)
         )
-        nameAndTitle(
+        NameAndTitle(
             modifier = Modifier
                 .align(Alignment.Center)
         )
@@ -66,15 +65,8 @@ fun allTogetherNow() {
 }
 
 
-@Preview(showBackground = true)
 @Composable
-fun allTogetherNowPreview() {
-    allTogetherNow()
-}
-
-
-@Composable
-fun titlePicture(modifier: Modifier) {
+fun TitlePicture(modifier: Modifier) {
     Image(
         painter = painterResource(id = R.drawable.email_black_24dp),
         contentDescription = null,
@@ -85,15 +77,8 @@ fun titlePicture(modifier: Modifier) {
 }
 
 
-@Preview
 @Composable
-fun titlePicturePreview() {
-    titlePicture(modifier = Modifier)
-}
-
-
-@Composable
-fun nameAndTitle(modifier: Modifier) {
+fun NameAndTitle(modifier: Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
@@ -111,15 +96,8 @@ fun nameAndTitle(modifier: Modifier) {
 }
 
 
-@Preview(showBackground = true)
 @Composable
-fun nameAndTitlePreview() {
-    nameAndTitle(modifier = Modifier)
-}
-
-
-@Composable
-fun ContactLine(text: String, modifier: Modifier = Modifier) {
+fun ContactLine(text: String) {
     Row(
         modifier = Modifier
             .padding(horizontal = 16.dp, vertical = 8.dp)
@@ -144,11 +122,4 @@ fun ContactLines(modifier: Modifier = Modifier) {
         ContactLine(text = "someother@gmail.com")
         ContactLine(text = "heythere@gmail.com")
     }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun ContactLinesPreview() {
-    ContactLines()
 }
